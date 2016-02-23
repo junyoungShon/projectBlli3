@@ -1,0 +1,204 @@
+start : insertMidCategory
+요청자 : scheduler
+발생 일자 : 2016.02.21 11:22:42
+총 대분류 개수 : 30
+총 중분류 개수 : 266
+insert한 중분류 개수 : 0
+update한 중분류 개수 : 266
+Exception 발생 횟수 : 0
+실행 시간  : 2분 53초
+end : insertMidCategory
+start : insertBigCategory
+요청자 : scheduler
+발생 일자 : 2016.02.21 11:29:45
+총 대분류 개수 : 30
+insert한 대분류 개수 : 0
+update한 대분류 개수 : 30
+Exception 발생 횟수 : 0
+실행 시간  : 1초
+end : insertBigCategory
+start : insertBigCategory
+요청자 : scheduler
+발생 일자 : 2016.02.21 11:30:32
+총 대분류 개수 : 30
+insert한 대분류 개수 : 0
+update한 대분류 개수 : 30
+Exception 발생 횟수 : 0
+실행 시간  : 1초
+end : insertBigCategory
+start : insertBigCategory
+요청자 : scheduler
+발생 일자 : 2016.02.21 11:31:28
+총 대분류 개수 : 30
+insert한 대분류 개수 : 0
+update한 대분류 개수 : 30
+Exception 발생 횟수 : 0
+실행 시간  : 1초
+end : insertBigCategory
+start : insertBigCategory
+요청자 : scheduler
+발생 일자 : 2016.02.21 11:32:47
+총 대분류 개수 : 30
+insert한 대분류 개수 : 0
+update한 대분류 개수 : 30
+Exception 발생 횟수 : 0
+실행 시간  : 1초
+end : insertBigCategory
+start : insertSmallProduct
+요청자 : scheduler
+발생 일자 : 2016.02.21 12:26:54
+start : insertSmallProduct
+요청자 : scheduler
+발생 일자 : 2016.02.21 12:30:45
+총 중분류 개수 : 266
+총 소제품 개수 : 299
+insert한 소제품 개수 : 260
+update한 소제품 개수 : 0
+insert한 조건에 맞지 않는 소제품 개수 : 376
+update하지 않은 소제품 개수 : 38
+confirmed -> dead로 변경된 소제품 개수 : 0
+dead -> dead로 여전히 남아 있는 소제품 개수 : 74
+dead -> unconfirmed로 변경된 소제품 개수 : 1
+Exception 발생 횟수 : 0
+실행 시간  : 5분 25초
+end : insertSmallProduct
+start : insertSmallProduct
+요청자 : scheduler
+발생 일자 : 2016.02.21 12:41:08
+총 중분류 개수 : 266
+총 소제품 개수 : 305
+insert한 소제품 개수 : 32
+update한 소제품 개수 : 0
+insert한 조건에 맞지 않는 소제품 개수 : 83
+update하지 않은 소제품 개수 : 272
+confirmed -> dead로 변경된 소제품 개수 : 0
+dead -> dead로 여전히 남아 있는 소제품 개수 : 356
+dead -> unconfirmed로 변경된 소제품 개수 : 1
+Exception 발생 횟수 : 0
+실행 시간  : 4분 30초
+end : insertSmallProduct
+start : insertSmallProduct
+요청자 : scheduler
+발생 일자 : 2016.02.21 12:49:12
+start : insertSmallProduct
+요청자 : scheduler
+발생 일자 : 2016.02.21 12:51:17
+총 중분류 개수 : 266
+총 소제품 개수 : 2645
+insert한 소제품 개수 : 2263
+update한 소제품 개수 : 0
+insert한 조건에 맞지 않는 소제품 개수 : 2269
+update하지 않은 소제품 개수 : 382
+confirmed -> dead로 변경된 소제품 개수 : 0
+dead -> dead로 여전히 남아 있는 소제품 개수 : 627
+dead -> unconfirmed로 변경된 소제품 개수 : 0
+Exception 발생 횟수 : 0
+실행 시간  : 15분 39초
+end : insertSmallProduct
+start : insertSmallProduct
+요청자 : scheduler
+발생 일자 : 2016.02.21 01:40:42
+총 중분류 개수 : 266
+총 소제품 개수 : 17639
+insert한 소제품 개수 : 9210
+update한 소제품 개수 : 0
+insert한 조건에 맞지 않는 소제품 개수 : 13623
+update하지 않은 소제품 개수 : 3319
+confirmed -> dead로 변경된 소제품 개수 : 0
+dead -> dead로 여전히 남아 있는 소제품 개수 : 5108
+dead -> unconfirmed로 변경된 소제품 개수 : 2
+Exception 발생 횟수 : 0
+실행 시간  : 57분 4초
+end : insertSmallProduct
+start : insertPosting
+요청자 : scheduler
+발생 일자 : 2016.02.21 04:09:56
+총 소제품 개수 : 7
+총 포스팅 개수 : 184
+insert한 포스팅 개수 : 0
+update한 포스팅 개수 : 0
+insert하지 않은 조건에 맞지 않는 포스팅 개수 : 47
+update하지 않은 포스팅 개수 : 184
+시간지연되어 insert or update하지 않은 포스팅 개수 : 2
+삭제된 포스팅 개수 : 0
+영구 dead 포스팅 개수 : 0
+confirmed -> temptDead로 변경된 포스팅 개수 : 0
+confirmed -> confirmedByAdmin으로 변경된 소제품 개수 : 0
+tempDead -> confirmed로 변경된 포스팅 개수 : 0
+Exception 발생 횟수 : 0
+실행 시간  : 12초
+end : insertPosting
+start : insertPosting
+요청자 : scheduler
+발생 일자 : 2016.02.21 04:14:24
+총 소제품 개수 : 7
+총 포스팅 개수 : 184
+insert한 포스팅 개수 : 0
+update한 포스팅 개수 : 0
+insert하지 않은 조건에 맞지 않는 포스팅 개수 : 47
+update하지 않은 포스팅 개수 : 184
+시간지연되어 insert or update하지 않은 포스팅 개수 : 2
+삭제된 포스팅 개수 : 0
+영구 dead 포스팅 개수 : 0
+confirmed -> temptDead로 변경된 포스팅 개수 : 0
+confirmed -> confirmedByAdmin으로 변경된 소제품 개수 : 0
+tempDead -> confirmed로 변경된 포스팅 개수 : 0
+Exception 발생 횟수 : 0
+실행 시간  : 10초
+end : insertPosting
+start : insertPosting
+요청자 : scheduler
+발생 일자 : 2016.02.21 06:15:29
+총 소제품 개수 : 7
+총 포스팅 개수 : 184
+insert한 포스팅 개수 : 0
+update한 포스팅 개수 : 3
+insert하지 않은 조건에 맞지 않는 포스팅 개수 : 47
+update하지 않은 포스팅 개수 : 181
+시간지연되어 insert or update하지 않은 포스팅 개수 : 2
+삭제된 포스팅 개수 : 0
+confirmed -> temptDead로 변경된 포스팅 개수 : 0
+confirmed -> confirmedByAdmin으로 변경된 소제품 개수 : 0
+temptDead -> confirmed로 변경된 포스팅 개수 : 0
+Exception 발생 횟수 : 0
+실행 시간  : 12초
+end : insertPosting
+start : insertBigCategory
+요청자 : scheduler
+발생 일자 : 2016.02.22 06:58:00
+총 대분류 개수 : 30
+insert한 대분류 개수 : 0
+update한 대분류 개수 : 30
+Exception 발생 횟수 : 0
+실행 시간  : 1초
+end : insertBigCategory
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+발생한 에러:null
+발생 메서드:selectBlliMemberInfoByMemberId
+발생 일자 : 2016.02.22 07:35:40
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:35:41
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:35:41
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:36:06
+모든 메서드가 걸리나
+모든 메서드가 걸리나
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:36:06

@@ -1,0 +1,83 @@
+<body>
+	<div id='readFrame'>
+		<div style="width: 100%; background: #fff; text-align: center;">
+			<table align='center' width='700' border='0' cellpadding='0' cellspacing='0' style='width: 700px; margin: 0 auto; text-align: left;'>
+				<tbody>
+					<tr>
+						<td style='height: 60px; background: #ffffe6; border-bottom: 2px solid #ffcc00;'>
+							<a href='http://bllidev.dev/projectBlli2/index.do' target='_blank' style='margin: 0 0 0 45px;'>
+								<img src='http://bllidev.dev/projectBlli2/image/blliLogo_orange.jpg' width='150' alt='블리'>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table width='700' border='0' cellpadding='0' cellspacing='0' style='background: #ffffe6;'>
+								<tbody>
+									<tr>
+										<td style='width: 45px;'></td>
+										<td>
+											<table width='610' border='0' cellpadding='0' cellspacing='0'>
+												<tbody>
+													<tr>
+														<td height="75" align="center">
+															<h2>지금 ${memberBabyName}에게 필요한 제품!</h2>
+														</td>
+													</tr>
+													<tr>
+														<td height='50' style='background: #ffd9b3; font: bold 15px Tahoma; text-align: center;'>
+															<ul style='list-style:none; padding-left:0px; display:inline;'>
+																#foreach($rplist in $recommendingProductList)
+																	<li>
+																		<div style='float:left; text-align:center; margin:15px'>
+																			<a href='http://bllidev.dev/projectBlli2/searchSmallProduct.do?searchWord=${rplist.midCategory}' style="text-decoration:none;">
+																				<img src='http://bllidev.dev/projectBlli2/${rplist.midCategoryMainPhotoLink}' style='width:115px; height: 115px; border-radius:15px;'>
+																				<p style="font-size:15px; font-weight: bold; font-family:'Nanum Barun Gothic';">
+																					${rplist.midCategory}
+																				</p>
+																			</a>
+																		</div>
+																	</li>
+																#end
+															</ul>
+														</td>
+													</tr>
+													<tr> 
+														<td style='padding: 22px 0 50px; color: #363636;'>
+															<h4 align="center"'>항상 블리를 사랑해주셔서 감사합니다. 보다 나은 서비스를 위해 최선을 다하겠습니다.</h4>
+															<h4 align="center"'>감사합니다!</h4>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+										<td style='width: 45px;'></td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div style="color: gray; width: 700px; margin: auto; text-align: left;">
+	<hr>
+		본 메일은 정보 통신망법 등 관련 규정에 의거하여 광고메일 수신 동의하에 발송 되는 메일 입니다.<br>
+		메일을 더이상 받지 않으시려면 <a style="color: #ff7f50" href="http://localhost:8888/blli/index.do?memberEmail=${memberEmail}">수신거부</a>를 눌러주십시오.<br>
+		If you don`t want to receive this e-mail anymore, <a style="color: #ff7f50" href="http://localhost:8888/blli/index.do?memberEmail=${memberEmail}">Please click here.</a><br>
+		서울시 XXX XXX X길 XX XXX XX XXXX XXXX호 블리<br>
+		업체명:(주)블리 | 대표자:XXX<br>
+		FAX:XX-XXXX-XXXX<br>
+		사업자 등록번호:XXX-XX-XXXXX<br>
+		통신판매업신고번호:제 XXXX-XXXX-XXXXX호
+	</div>
+</body>
+
+<!-- 그냥 메모
+	- 콘솔에만 한번뜨고 실행(메일 발송)은 두번 되고있음 (두번뜨고 두번될때도.. 뭐지)
+	- $변수 == ${변수}
+	- 변수가 null이면 null로 표시가 안되고 그냥 ${변수명} 그대로 출력
+	- 뭐가 안먹히면 문법상 오류 의심(그냥 텍스트 파일이니까 안잡아준다. 주의할 것)
+	- ul, li에서 안먹히면 그 안에 div지 뭐
+-->

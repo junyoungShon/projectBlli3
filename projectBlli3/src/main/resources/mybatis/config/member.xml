@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="member"> 
+ 	<!-- BlliMemberVO Result Map 설정 -->
+ 	<resultMap type="blliMemberVO" id="bmvRM">
+ 		<result property="memberId" column="member_id"/>
+ 		<result property="memberEmail" column="member_email"/>
+ 		<result property="memberPassword" column="member_password"/>
+ 		<result property="memberName" column="member_name"/>
+ 		<result property="memberState" column="member_state"/>
+ 		<result property="authority" column="authority"/>
+ 	</resultMap>
+ 	<!-- BlliBabyVO Result Map 설정 -->
+ 	<resultMap type="blliBabyVO" id="bbvRM">
+ 		<result property="babyName" column="baby_name"/>
+ 		<result property="memberId" column="member_Id"/>
+ 		<result property="babyBirthday" column="baby_birthday"/>
+ 		<result property="babySex" column="baby_Sex"/>
+ 		<result property="babyPhoto" column="baby_photo"/>
+ 		<result property="recommending" column="recommending"/>
+ 	</resultMap>
+ 	<!-- BlliMailVO Result Map 설정 -->
+ 	<resultMap type="blliMailVO" id="bmlvRM">
+ 		<result property="mailForm" column="mail_form"/>
+ 		<result property="mailSubject" column="mail_subject"/>
+ 		<result property="mailContentFile" column="mail_content_file"/>
+ 	</resultMap>
+ 	<!-- BlliScheduleVO Result Map 설정 -->
+ 	<resultMap type="blliScheduleVO" id="bsvRM">
+ 		<result property="scheduleId" column="schedule_id"/>
+ 		<result property="memberId" column="member_id"/>
+ 		<result property="babyName" column="baby_name"/>
+ 		<result property="scheduleDate" column="schedule_date"/>
+ 		<result property="scheduleTitle" column="schedule_title"/>
+ 		<result property="scheduleContent" column="schedule_content"/>
+ 		<result property="scheduleLocation" column="schedule_location"/>
+ 		<result property="scheduleCheckState" column="schedule_check_state"/>
+ 	</resultMap>
+ 	<!-- BlliMemberScrapeVO Result Map 설정 -->
+ 	<resultMap type="blliMemberScrapeVO" id="bmsvRM">
+ 		<result property="memberId" column="member_id"/>
+ 		<result property="postingUrl" column="posting_url"/>
+ 		<result property="smallProductId" column="small_product_id"/>
+ 		<result property="scrapeTime" column="scrape_time"/>
+ 	</resultMap>
+ 	 	<!-- BlliPostingVO Result Map 설정 -->
+ 	<resultMap type="blliPostingVO" id="bpvRM">
+ 		<result property="postingUrl" column="posting_url"/>
+ 		<result property="postingTitle" column="posting_title"/>
+ 		<result property="postingSummary" column="posting_summary"/>
+ 		<result property="postingContent" column="posting_content"/>
+ 		<result property="postingScore" column="posting_score"/>
+ 		<result property="postingLikeCount" column="posting_like_count"/>
+ 		<result property="postingDislikeCount" column="posting_dislike_count"/>
+ 		<result property="postingMediaCount" column="posting_media_count"/>
+ 		<result property="postingPhotoLink" column="posting_photo_link"/>
+ 		<result property="postingStatus" column="posting_status"/>
+ 		<result property="postingTotalResidenceTime" column="posting_total_residence_time"/>
+ 		<result property="postingViewCount" column="posting_view_count"/>
+ 		<result property="postingScrapeCount" column="posting_scrape_count"/>
+ 		<result property="postingAuthor" column="posting_author"/>
+ 		<result property="postingDate" column="posting_date"/>
+ 		<result property="postingRank" column="posting_rank"/>
+ 		<result property="postingReplyCount" column="posting_reply_count"/>
+ 		<result property="smallProduct" column="small_product"/>
+ 		<result property="smallProductId" column="small_product_id"/>
+ 		<result property="postingDbInsertDate" column="posting_Db_Insert_Date"/>
+ 		<result property="midCategory" column="mid_category"/>
+ 	</resultMap>
+ 	
+ 	<!-- 준영 작성 쿼리 -->
+ 	<!-- id로 회원의 존재 여부를 찾습니다. -->
+	<select id="findMemberByIdForLogin" resultMap="bmvRM">
+		select member_id,member_password,authority,member_Email from blli_member where member_id = #{value}
+	</select>
+	<!-- 회원의 정보를 삽입합니다. -->
+	<insert id="insertMemberInfo" parameterType="blliMemberVO">
+		insert into BLLI_MEMBER (member_Id,member_password,member_email,member_name,authority,member_State)
+		values (#{memberId},#{memberPassword},#{memberEmail},#{memberName},#{authority},1)
+	</insert>
+	<!-- 회원의 이메일을 갱신한다. -->
+	<update id="updateMemberEmail">
+		update blli_member set member_email = #{memberEmail} where member_id = #{memberId}
+	</update>
+	<!-- 회원의 권한을 갱신한다. -->
+	<update id="updateMemberAuthority">
+		update blli_member set authority = #{authority} where member_id = #{memberId}
+	</update>
+	
+	<!-- 회원의 아이정보를 삽입합니다. -->
+	<insert id="insertBabyInfo" parameterType="blliBabyVO">
+		insert into BLLI_baby (member_Id,baby_name,baby_birthday,baby_sex,baby_photo,recommending)
+		values (#{memberId},#{babyName},to_date(#{babyBirthday},'YYYY-MM-DD'),#{babySex},#{babyPhoto},#{recommending})
+	</insert>
+	
+	<!-- 회원 아이정보를 지운다. -->
+	<delete id="deleteBabyInfo">
+		 delete from blli_baby where member_id=#{value}
+	</delete>
+	<!-- 회원의 이메일로 회원의 정보를 찾아온다. -->
+	<select id="selectBlliMemberInfoByMemberId" resultMap="bmvRM">
+		select member_id,member_email,member_name,member_state,authority from blli_member where member_id=#{value}
+	</select>
+	<!-- 회원의 이메일로 아이들의 정보를 받아온다. -->
+	<select id="selectBabyListByMemberId" resultMap="bbvRM">
+		select member_id , baby_name , baby_birthday,baby_sex,baby_photo,member_id,recommending ,baby_photo from blli_baby where member_id = #{value}
+	</select>
+	<!-- 회원의 추천 대상 아이를 바꿔줍니다. -->
+	<update id="changeRecommendingBaby">
+		update blli_baby set recommending = #{recommending} where member_id = #{memberId} and baby_name=#{babyName}
+	</update>
+	<!-- 회원의 정보를 바꿔줍니다. -->
+	<update id="updateMemberInfoByEmail">
+		update blli_member set member_email = #{memberEmail}, member_name =#{memberName} , member_password=#{memberPassword} where member_id = #{memberId}
+	</update>
+	
+	<!-- 준영 쿼리 끝 -->
+	
+	
+	
+	
+	
+	
+	
+ 	
+ 	<!-- 용호 작성 쿼리 -->
+ 	<!-- memberId로 회원의 메일주소를 찾는다. -->
+	<select id="findMemberInfoById" resultMap="bmvRM">
+		select member_id, member_email, member_password, member_name from blli_member where member_id = #{value}
+	</select>
+ 	<!-- mailForm으로 해당 메일의 제목, 내용, form 파일을 찾는다. -->
+	<select id="findMailSubjectAndContentByMailForm" resultMap="bmlvRM">
+		select mail_subject, mail_content_file from blli_mailing where mail_form = #{value}
+	</select>
+ 	<!-- 월령이 바뀐 아이를 가진 회원 VO 목록을 얻어온다. -->
+	<select id="getMemberHavingBabyAgeChangedList" resultMap="bmvRM">
+		select bm.member_id, bm.member_email, bm.member_name 
+		from blli_member bm, (select distinct bb.member_id from blli_baby bb where substr(to_char(baby_birthday), 7) = substr(to_char(sysdate), 7)) idt 
+		where bm.member_id = idt.member_id and bm.mail_agree = 0
+	</select>
+ 	<!-- 회원의 월령이 바뀐 아이 VO 목록을 얻어온다. -->
+	<select id="getBabyAgeChangedListOfMember" resultMap="bbvRM">
+		select babyt.member_id, babyt.baby_name, babyt.baby_birthday, babyt.baby_photo 
+		from (select bb.member_id, bb.baby_name, bb.baby_birthday, bb.baby_photo from blli_baby bb where bb.member_id = #{value}) babyt
+		where substr(to_char(babyt.baby_birthday), 7) = substr(to_char(sysdate), 7)
+	</select>
+	<!-- 회원의 메일주소로 회원 이름을 찾는다. -->
+	<select id="findMemberNameByEmail" resultType="java.lang.String">
+		select member_name from blli_member where member_email = #{value}
+	</select>
+	<!-- 회원의 비밀번호를 임시비밀번호로 변경한다. -->
+	<update id="updateMemberPasswordToTemporaryPassword">
+		update blli_member set member_password = #{memberPassword} where member_email = #{memberEmail}
+	</update>
+	<!-- 회원의 아이 일정을 추가하고  scheduleId를 받아온다 -->
+	<insert id="addSchedule">
+		<selectKey resultType="Integer" keyProperty="scheduleId" order="BEFORE">
+            select blli_schedule_seq.nextval from dual
+		</selectKey>   
+		insert into blli_schedule (schedule_id, member_id, baby_name, schedule_date, schedule_title, schedule_location, schedule_content)
+		values (#{scheduleId},#{memberId},#{babyName},#{scheduleDate},#{scheduleTitle},#{scheduleLocation},#{scheduleContent})
+	</insert>
+	<!-- 일정을 수정한다. -->
+	<update id="updateSchedule">
+		update blli_schedule set schedule_location = #{scheduleLocation}, schedule_title = #{scheduleTitle}, schedule_content = #{scheduleContent} 
+		where schedule_id = #{scheduleId}
+	</update>
+	<!-- 일정ID로 해당 일정 정보를 가져온다 -->
+	<select id="selectSchedule" resultMap="bsvRM">
+		select member_id, baby_name, to_char(schedule_date) as schedule_date, schedule_title, schedule_content, schedule_location
+		from blli_schedule
+		where schedule_id = #{scheduleId}
+	</select>
+	<!-- 회원ID로 회원의 일정 목록을 가져온다 -->
+	<select id="getMemberScheduleList" resultMap="bsvRM">
+		select schedule_id, member_id, baby_name, to_char(schedule_date) as schedule_date, schedule_title, schedule_content, schedule_location, schedule_check_state
+		from blli_schedule
+		where member_id = #{value}
+	</select>
+	<!-- 용호 쿼리 끝 -->
+	
+	
+	
+	<!-- 현석 쿼리 시작 -->
+	<update id="denySendEmail">
+		update blli_member set mail_agree = 1 where member_email = #{memberEmail}
+	</update>
+	
+	<select id="getScrapeInfoByMemberId" resultMap="bpvRM">
+		select posting_url, small_product_id from blli_member_scrape where member_id = #{memberId}
+	</select>
+	<!-- 현석 쿼리 끝 -->
+	
+ </mapper>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

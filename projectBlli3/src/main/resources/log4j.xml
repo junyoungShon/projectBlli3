@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="consoleByScheduler" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+	
+	
+
+	<!-- 일주일 간격으로 로그 파일 생성(로컬) -->
+    <appender name="rollingFileInLocal" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="C:/Users/junyoung/git/blli/src/main/webapp/logFile/blliLog.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-ww"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n" />
+        </layout>
+    </appender>
+	<!-- 일주일 간격으로 로그 파일 생성(로컬) -->
+    <appender name="errorByUser" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="C:/Users/junyoung/git/blli/src/main/webapp/logFile/errorByUser.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-ww"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n" />
+        </layout>   
+    </appender>
+	<!-- 일주일 간격으로 로그 파일 생성(서버) -->
+    <appender name="rollingFileInServer" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/usr/bin/apache-tomcat-7.0.64/webapps/logFile/blliLog.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-ww"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n" />
+        </layout>   
+    </appender>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+	<logger name="kr.co.blli.aop">
+        <level value="ERROR"/>
+        <appender-ref ref="errorByUser"/>
+    </logger>
+    
+    <logger name="kr.co.blli.model.scheduler">
+        <level value="ERROR"/>
+        <appender-ref ref="rollingFileInLocal" />
+    </logger>
+	
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="consoleByScheduler" />
+	</root>
+	
+</log4j:configuration>

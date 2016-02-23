@@ -1,0 +1,82 @@
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:38:22
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:38:22
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:38:24
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:38:24
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:38:25
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:38:25
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:39:41
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:39:41
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:40:00
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:40:00
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:40:11
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:40:11
+발생한 에러:
+### Error updating database.  Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(SCOTT.SYS_C005186)에 위배됩니다
+
+### The error may involve member.insertMemberInfo-Inline
+### The error occurred while setting parameters
+### SQL: insert into BLLI_MEMBER (member_Id,member_password,member_email,member_name,authority,member_State)   values (?,?,?,?,?,1)
+### Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(SCOTT.SYS_C005186)에 위배됩니다
+
+; SQL []; ORA-00001: 무결성 제약 조건(SCOTT.SYS_C005186)에 위배됩니다
+; nested exception is java.sql.SQLException: ORA-00001: 무결성 제약 조건(SCOTT.SYS_C005186)에 위배됩니다
+
+발생 메서드:insertMemberInfo
+발생 일자 : 2016.02.22 07:40:16
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:41:22
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:41:22
+발생한 에러:null
+발생 메서드:selectBlliMemberInfoByMemberId
+발생 일자 : 2016.02.22 07:41:22
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:41:22
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:41:22
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:41:27
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:41:27
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:41:59
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:41:59
+발생한 에러:null
+발생 메서드:selectTotalProductNum
+발생 일자 : 2016.02.22 07:42:05
+발생한 에러:null
+발생 메서드:selectTotalPostingtNum
+발생 일자 : 2016.02.22 07:42:05
